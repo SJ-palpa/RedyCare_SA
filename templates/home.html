@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block extra_head %}
+    {% load static %}
+    <style type="text/css">
+
+        .view {
+            background:  url("{% static 'img/homepage5.jpg'  %} ") no-repeat center center fixed ;
+            -webkit-background-size: cover;
+            -moz-background-size: cover ;
+            -o-background-size: cover ;
+            background-size: cover ;
+        }
+
+        .full-bg-img {
+            color: #fff;
+        }
+
+        .title {
+            font-weight: 100;
+        }
+
+        .no_bullet_point{
+            list-style-type:none;
+            padding-left: 0;
+        }
+        .newsletter-text {
+          border: 2px solid white;
+          padding: 20px;
+          margin: 0 auto;
+          position: relative;
+          background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+  <!--Mask-->
+<div class="view hm-black-light">
+  <div class="full-bg-img flex-center">
+      <div class="newsletter-text wow fadeInUp">
+        <ul class="no_bullet_point">
+          <li>
+            <h1 class="h1-responsive  title"><strong>We specialize in the sale of medical consumables to professionals.</strong></h1></li>
+          <li>
+            <div class="row" data-wow-delay="2s">
+              <div class="offset-md-4 col-md-4 ">
+                <div class="md-form">
+                    <a href="{% url 'core:products' %}">
+                        <button type="button" class="btn btn-light btn-lg">Ordering Space</button>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+<!--/.Mask-->
+{% endblock content %}
+

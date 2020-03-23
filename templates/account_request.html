@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block head_title %}{% trans "Account Request" %}{% endblock %}
+
+{% block content %}
+
+  <main>
+    <div class="container">
+      <section class="mb-4">
+        <div class="row wow fadeIn">
+          <div class='col-6 offset-3'>
+              <h1>{% trans "Account request" %}</h1>
+              <form class="login" method="POST" action="{% url 'core:account-request' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-light" type="submit">{% trans "Send request" %}</button>
+              </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+{% endblock content %}
